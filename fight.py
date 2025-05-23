@@ -1,6 +1,6 @@
 import random
 from utils import GameLogger
-logger = GameLogger()
+#logger = GameLogger()
 
 class FightModel:
     def __init__(self, hero, enemy, logger=None):
