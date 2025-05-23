@@ -1,4 +1,4 @@
-import logs as Logos
+from utils import logger
 
 class Inventory:
     def __init__(self):
@@ -63,9 +63,7 @@ class Weapon(Itemz):
         super().__init__(name, description, type, value, weight, durability)
         self._damage = damage
         self._weapon_list.append(self)
-        self.item_created_log = f'Item created: {self._name} - {self._description} - {self._type} - {self._value} - {self._weight} - {self._durability} - {self._damage}'
-
-        Logos.add_items_log(self.item_created_log)    # add item created log to the items log
+        logger.log(f'Item created: {self._name} - {self._description} - {self._type} - {self._value} - {self._weight} - {self._durability} - {self._damage}','item')
 
     @property
     def damage(self):
