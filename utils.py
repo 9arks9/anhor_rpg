@@ -20,3 +20,6 @@ class GameLogger:
         elif log_type == "system":
             return "\n".join(self.system_log)
         return ""
+
+# Global logger
+logger = GameLogger()
