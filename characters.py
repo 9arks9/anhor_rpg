@@ -1,5 +1,4 @@
 import random
-import logs as Logos
 from utils import logger
 
 class Character:
@@ -50,7 +49,7 @@ class Hero(Character):
         self._hp += 10
         self._attack += 2
         self._defence += 1
-        print(f'{self.name} +++LEVELED UP! STATS BOOSTED!')
+        logger.log(f'{self.name} +++LEVELED UP! STATS BOOSTED!','l')
 
     def add_exp(self, value,exp_needed=100):
         self._exp += value
@@ -59,7 +58,7 @@ class Hero(Character):
             self.level_up()
             self._exp = 0
             exp_needed *= 2
-            print(f'{self.name} needs {exp_needed} exp to get level{self.level+1}.')
+            logger.log(f'{self.name} needs {exp_needed} exp to get level{self.level+1}.','l')
 
     def __str__(self):
         return super().__str__() + f'Exp: [{self._exp}]'        
@@ -103,19 +102,19 @@ class Enemy(Character):
     def level_up_monster(self, kill_count):
         if kill_count == 10:
             self.level_multiplier(5)
-            print(f'[{self._original_monster_name}] leveled up! stats boosted!')
-            print(f'[{self._original_monster_name}] is drunk and lost his mind!\n____________')
+            logger.log(f'[{self._original_monster_name}] leveled up! stats boosted!','e')
+            logger.log(f'[{self._original_monster_name}] is drunk and lost his mind!\n____________','e')
             self._name = 'Drunk ' + self._original_monster_name         
             
         elif 50 <= kill_count < 500:
             self.level_multiplier(10)
-            print(f'[{self._original_monster_name}] leveled up! stats boosted!')
-            print(f'[{self._original_monster_name}] is angry and ready to fight!\n____________')
+            logger.log(f'[{self._original_monster_name}] leveled up! stats boosted!','e')
+            logger.log(f'[{self._original_monster_name}] is angry and ready to fight!\n____________','e')
             self._name = self._original_monster_name + ' Warrior'
 
         elif kill_count >= 500:
             self.level_multiplier(15)
-            print(f'[{self._original_monster_name}] leveled up! stats boosted!')
-            print(f'[{self._original_monster_name}] is a terminator now!\n____________')
+            logger.log(f'[{self._original_monster_name}] leveled up! stats boosted!','e')
+            logger.log(f'[{self._original_monster_name}] is a terminator now!\n____________''e)
             self._name = self._original_monster_name + ' Terminator'
             
