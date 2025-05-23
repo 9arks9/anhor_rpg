@@ -15,12 +15,7 @@ class Inventory:
         return self._equipped
     
     def add_item(self, item):
-        if item.type == 'weapon':
-            self._weapons.append(item)
-        elif item.type == 'armor':
-            self._armor.append(item)
-        else:
-            self._inventory.append(item)
+        self._inventory.append(item)
 
 
     
