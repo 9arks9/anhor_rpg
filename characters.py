@@ -1,5 +1,6 @@
 import random
 import logs as Logos
+from utils import logger
 
 class Character:
     def __init__(self, name, hp, attack, defence, level):
